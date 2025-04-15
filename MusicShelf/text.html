@@ -1,0 +1,29 @@
+<style>
+  img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    position: relative;
+  }
+
+  /* Simulated loading effect */
+  img::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('spinner.gif') center center no-repeat;
+    background-size: 40px 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Hide the placeholder when the image loads */
+  img.loaded::before {
+    display: none;
+  }
+</style>
+
+<img src="image.jpg" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')">
